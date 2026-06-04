@@ -179,8 +179,8 @@ async def call_mimo(session: aiohttp.ClientSession, prompt: str, stats: dict) ->
     stats["errors"] += 1
     return {"success": False, "error": "Max retries exceeded"}
 
-async def execute_subtask(session: aiohttp.ClientSession, task: dict, subtask: str, stats: dict, output_dir: Path) -> dict:
-    """执行单个子任务"""
+async def execute_subtask(session: aiohttp.ClientSession, task: dict, subtask: str, stats: dict) -> dict:
+    """执行单个子任务，返回内容但不保存文件"""
     prompt = f"""请完成以下任务：
 
 任务：{task['title']}
@@ -189,31 +189,19 @@ async def execute_subtask(session: aiohttp.ClientSession, task: dict, subtask: s
 要求：
 1. 详细完成任务
 2. 输出高质量内容
-3. 保存到指定目录
+3. 内容要完整、深入
 
 请开始执行："""
     
     result = await call_mimo(session, prompt, stats)
     
     if result["success"]:
-        # 保存结果
-        output_dir.mkdir(parents=True, exist_ok=True)
-        safe_name = "".join(c for c in subtask[:30] if c.isalnum() or c in "._- ").strip()
-        filename = f"{safe_name}.md"
-        filepath = output_dir / filename
-        
-        with open(filepath, "w", encoding="utf-8") as f:
-            f.write(f"# {subtask}\n\n")
-            f.write(f"**任务**: {task['title']}\n")
-            f.write(f"**时间**: {datetime.now().isoformat()}\n\n")
-            f.write(result["content"])
-        
-        return {"success": True, "file": str(filepath), "tokens": result["total"]}
+        return {"success": True, "content": result["content"], "tokens": result["total"]}
     
     return {"success": False, "error": result["error"]}
 
 async def execute_task(agent_id: int, session: aiohttp.ClientSession, task: dict, stats: dict) -> dict:
-    """执行完整任务（包含多个子任务）"""
+    """执行完整任务，生成1-2个核心文件"""
     task_id = task["id"]
     title = task["title"]
     output_dir = PROJECTS_DIR / task["output_dir"].split("/")[-1]
@@ -223,20 +211,43 @@ async def execute_task(agent_id: int, session: aiohttp.ClientSession, task: dict
     completed_subtasks = 0
     failed_subtasks = 0
     total_tokens = 0
+    all_contents = []
     
     for subtask in task["tasks"]:
-        result = await execute_subtask(session, task, subtask, stats, output_dir)
+        result = await execute_subtask(session, task, subtask, stats)
         
         if result["success"]:
             completed_subtasks += 1
             total_tokens += result["tokens"]
+            all_contents.append({"subtask": subtask, "content": result["content"]})
             log(f"[Agent {agent_id:02d}] ✓ 完成: {subtask[:50]}... | +{result['tokens']:,} tokens")
         else:
             failed_subtasks += 1
             log(f"[Agent {agent_id:02d}] ✗ 失败: {subtask[:50]}... | {result['error']}")
     
-    # 生成任务总结
-    summary = f"""# {title} - 执行总结
+    # 生成1-2个核心文件
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # 1. 完整报告（包含所有内容）
+    report_content = f"""# {title}
+
+**任务ID**: {task_id}
+**类型**: {task['type']}
+**生成时间**: {datetime.now().isoformat()}
+
+---
+
+"""
+    
+    for item in all_contents:
+        report_content += f"## {item['subtask']}\n\n{item['content']}\n\n---\n\n"
+    
+    report_file = output_dir / "完整报告.md"
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write(report_content)
+    
+    # 2. README（简要总结）
+    readme_content = f"""# {title}
 
 ## 任务信息
 - **ID**: {task_id}
@@ -248,16 +259,16 @@ async def execute_task(agent_id: int, session: aiohttp.ClientSession, task: dict
 - **失败子任务**: {failed_subtasks}
 - **消耗 Tokens**: {total_tokens:,}
 
-## 输出目录
-{output_dir}
+## 输出文件
+- [完整报告.md](完整报告.md)
 
 ## 生成时间
 {datetime.now().isoformat()}
 """
     
-    summary_file = output_dir / "README.md"
-    with open(summary_file, "w", encoding="utf-8") as f:
-        f.write(summary)
+    readme_file = output_dir / "README.md"
+    with open(readme_file, "w", encoding="utf-8") as f:
+        f.write(readme_content)
     
     return {
         "task_id": task_id,
