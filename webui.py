@@ -32,12 +32,22 @@ def get_project_progress():
     stats = get_stats()
     tasks = load_tasks()
     
+    # 从 task_history 统计每个项目的完成次数
     task_counts = {}
     for h in stats.get("task_history", []):
         tid = h.get("task_id", "")
         if tid not in task_counts:
             task_counts[tid] = 0
         task_counts[tid] += 1
+    
+    # 如果 task_history 为空，根据 completed_tasks 和项目目录估算
+    total_completed = stats.get("completed_tasks", 0)
+    if not task_counts and total_completed > 0 and tasks:
+        # 平均分配完成数到各项目
+        avg_per_task = total_completed // len(tasks)
+        remainder = total_completed % len(tasks)
+        for i, task in enumerate(tasks):
+            task_counts[task["id"]] = avg_per_task + (1 if i < remainder else 0)
     
     projects = []
     for task in tasks:
