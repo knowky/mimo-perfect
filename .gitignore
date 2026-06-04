@@ -9,14 +9,11 @@ venv/
 .venv/
 
 # Stats and logs
-*.json
 *.txt
 !tasks.json
 
 # Output (too large for git)
-projects/
-quality_output/
-output/
+# projects/
 
 # IDE
 .vscode/
