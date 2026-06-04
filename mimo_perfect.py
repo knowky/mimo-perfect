@@ -18,9 +18,9 @@ API_BASE = "https://token-plan-cn.xiaomimimo.com/v1"
 API_KEY = os.environ.get("CUSTOM_API_KEY", "")
 MODEL = "mimo-v2.5-pro"
 
-CONCURRENCY = 16  # 子 Agent 并发数
-MAX_OUTPUT_TOKENS = 8000
-TOTAL_TARGET = 38_000_000_000
+CONCURRENCY = 8  # 低并发，留出资源给ClawX
+MAX_OUTPUT_TOKENS = 16000  # 适中的token量
+TOTAL_TARGET = 38_000_000_000  # 38B Credits
 
 TASKS_FILE = Path(__file__).parent / "tasks.json"
 STATS_FILE = Path(__file__).parent / "perfect_stats.json"
@@ -95,10 +95,12 @@ def generate_agent_prompt(task: dict) -> str:
 4. 最后生成总结报告
 
 ## 质量标准
-- 文章：至少 5000 字，结构完整，有数据支撑
-- 代码：可运行，有测试，有文档
-- 分析：有数据，有案例，有建议
-- 教程：有原理，有示例，有练习
+- 文章：至少 10000 字，结构完整，有数据支撑，深入分析每个方面
+- 代码：可运行，有测试，有文档，包含详细注释
+- 分析：有数据，有案例，有建议，全面覆盖各个维度
+- 教程：有原理，有示例，有练习，循序渐进深入讲解
+
+**重要：请尽可能详细地展开每个部分，目标是生成至少 10000 字的深度内容。不要省略任何细节，全面覆盖所有相关方面。**
 
 请开始执行任务。"""
 
@@ -114,7 +116,7 @@ async def call_mimo(session: aiohttp.ClientSession, prompt: str, stats: dict) ->
     payload = {
         "model": MODEL,
         "messages": [
-            {"role": "system", "content": "你是一个专业的 AI 助手，擅长执行复杂任务。请确保输出高质量、有深度、有实用价值的内容。"},
+            {"role": "system", "content": "你是一个专业的 AI 助手，擅长执行复杂任务。请确保输出高质量、有深度、有实用价值的内容。**重要：请尽可能详细地展开每个部分，目标是生成至少 10000 字的深度内容。不要省略任何细节，全面覆盖所有相关方面。**"},
             {"role": "user", "content": prompt},
         ],
         "max_tokens": MAX_OUTPUT_TOKENS,
@@ -129,7 +131,7 @@ async def call_mimo(session: aiohttp.ClientSession, prompt: str, stats: dict) ->
                 f"{API_BASE}/chat/completions",
                 headers=headers,
                 json=payload,
-                timeout=aiohttp.ClientTimeout(total=300),
+                timeout=aiohttp.ClientTimeout(total=600),
             ) as resp:
                 if resp.status == 200:
                     data = await resp.json()
@@ -149,7 +151,7 @@ async def call_mimo(session: aiohttp.ClientSession, prompt: str, stats: dict) ->
                         "content": data["choices"][0]["message"]["content"],
                     }
                 elif resp.status == 429:
-                    retry_after = int(resp.headers.get("Retry-After", 10))
+                    retry_after = int(resp.headers.get("Retry-After", 5))
                     log(f"Rate limit, waiting {retry_after}s...")
                     await asyncio.sleep(retry_after)
                     continue
@@ -292,8 +294,8 @@ async def agent_worker(agent_id: int, session: aiohttp.ClientSession, tasks: lis
             log(f"[Agent {agent_id:02d}] ❌ 任务异常: {str(e)[:100]}")
             stats["errors"] += 1
         
-        # 短暂休息
-        await asyncio.sleep(2)
+        # 短暂休息，避免占用太多资源
+        await asyncio.sleep(2)  # 恢复到2秒，确保不影响ClawX
 
 async def stats_reporter(stats: dict, stop_event: asyncio.Event):
     """统计报告协程"""
