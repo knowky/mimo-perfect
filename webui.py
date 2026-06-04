@@ -265,6 +265,46 @@ class MiMoHandler(SimpleHTTPRequestHandler):
         time_left = f"{progress['hours_left']/24:.1f} 天" if progress['hours_left'] > 24 else f"{progress['hours_left']:.1f} 小时"
         eta_str = progress['eta'].strftime("%m-%d %H:%M") if progress['eta'] else "计算中"
         
+        # 配置信息
+        config_html = '''
+        <div class="config-section">
+            <div class="section-title">⚙️ 当前配置</div>
+            <div class="config-grid">
+                <div class="config-item">
+                    <span class="config-icon">⚡</span>
+                    <span class="config-label">并发数</span>
+                    <span class="config-value">8</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-icon">📝</span>
+                    <span class="config-label">每次输出</span>
+                    <span class="config-value">16K tokens</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-icon">⏱️</span>
+                    <span class="config-label">休息间隔</span>
+                    <span class="config-value">2 秒</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-icon">🎯</span>
+                    <span class="config-label">目标</span>
+                    <span class="config-value">38B Credits</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-icon">📊</span>
+                    <span class="config-label">预计速率</span>
+                    <span class="config-value">~230M/小时</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-icon">⏰</span>
+                    <span class="config-label">预计完成</span>
+                    <span class="config-value">~7 天</span>
+                </div>
+            </div>
+            <div class="config-note">💡 低优先级运行，不影响 ClawX 正常使用</div>
+        </div>
+        '''
+        
         return f'''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -531,6 +571,57 @@ class MiMoHandler(SimpleHTTPRequestHandler):
             margin: 3rem 0;
         }}
         
+        .config-section {{
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }}
+        
+        .config-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }}
+        
+        .config-item {{
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }}
+        
+        .config-icon {{
+            font-size: 1.5rem;
+        }}
+        
+        .config-label {{
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }}
+        
+        .config-value {{
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-light);
+        }}
+        
+        .config-note {{
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #10b981;
+        }}
+        
         .projects-header {{
             display: flex;
             justify-content: space-between;
@@ -739,13 +830,13 @@ class MiMoHandler(SimpleHTTPRequestHandler):
     <div class="container">
         <header class="header">
             <h1>🚀 MiMo Dashboard</h1>
-            <p>AI 内容生成进度实时监控</p>
+            <p>AI 内容生成进度实时监控 | 目标: 38B Credits</p>
         </header>
         
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-value">{progress['total_tokens'] / 1e9:.2f}B</div>
-                <div class="stat-label">已消耗 Tokens</div>
+                <div class="stat-label">已消耗 Credits</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value">{stats['completed_tasks']}</div>
@@ -778,11 +869,13 @@ class MiMoHandler(SimpleHTTPRequestHandler):
                 <div class="progress-fill-main" style="width: {min(100, progress['progress']):.2f}%;"></div>
             </div>
             <div class="progress-info">
-                <span>目标: {progress['target'] / 1e9:.0f}B tokens</span>
+                <span>目标: {progress['target'] / 1e9:.0f}B Credits</span>
                 <span>已用: {progress['total_tokens'] / 1e9:.2f}B</span>
                 <span>预计完成: {eta_str}</span>
             </div>
         </div>
+        
+        {config_html}
         
         <div class="type-section">
             <div class="section-title">📁 项目分类</div>
