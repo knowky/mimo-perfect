@@ -9,12 +9,13 @@ import asyncio
 import aiohttp
 import time
 import random
+import os
 from datetime import datetime
 from pathlib import Path
 
 # ============ 配置 ============
 API_BASE = "https://token-plan-cn.xiaomimimo.com/v1"
-API_KEY = ***"CUSTOM_API_KEY", "")
+API_KEY = os.environ.get("CUSTOM_API_KEY", "")
 MODEL = "mimo-v2.5-pro"
 
 CONCURRENCY = 16  # 子 Agent 并发数
@@ -31,7 +32,7 @@ PROJECTS_DIR = Path(__file__).parent / "projects"
 def log(msg: str):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{ts}] {msg}"
-    print(line, flush=True)
+    print(line.encode('utf-8', errors='replace').decode('utf-8'), flush=True)
     with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(line + "\n")
 
@@ -320,7 +321,7 @@ async def stats_reporter(stats: dict, stop_event: asyncio.Event):
 
 async def main():
     if not API_KEY:
-        ***"错误: 未设置 CUSTOM_API_KEY")
+        print("错误: 未设置 CUSTOM_API_KEY")
         return
     
     # 创建目录

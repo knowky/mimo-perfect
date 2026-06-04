@@ -19,7 +19,7 @@ from pathlib import Path
 
 # ============ 配置 ============
 API_BASE = "https://token-plan-cn.xiaomimimo.com/v1"
-API_KEY = ***"CUSTOM_API_KEY", "")
+API_KEY = os.environ.get("CUSTOM_API_KEY", "")
 MODEL = "mimo-v2.5-pro"
 
 CONCURRENCY = 100           # 最大并发
@@ -611,7 +611,7 @@ async def stats_reporter(stats: dict, stop_event: asyncio.Event):
 
 async def main():
     if not API_KEY:
-        ***"错误: 未设置 CUSTOM_API_KEY")
+        print("错误: 未设置 CUSTOM_API_KEY")
         sys.exit(1)
     
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
