@@ -1,0 +1,838 @@
+[
+  {
+    "id": "research-001",
+    "type": "research",
+    "title": "量子计算商业化路径深度研究",
+    "description": "研究量子计算从实验室到商业化的完整路径，包括技术突破、产业应用、投资机会、风险挑战",
+    "output_dir": "projects/research-001",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "搜索全球量子计算公司最新进展",
+      "分析 IBM/Google/微软/中国公司的技术路线",
+      "研究量子计算在金融/医药/材料领域的应用案例",
+      "撰写万字深度报告",
+      "制作数据图表和趋势分析"
+    ]
+  },
+  {
+    "id": "research-002",
+    "type": "research",
+    "title": "大语言模型能力边界与演进路线",
+    "description": "深入研究LLM的能力边界、涌现现象、Scaling Law、未来演进方向",
+    "output_dir": "projects/research-002",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "分析 GPT-4/Claude/Gemini/DeepSeek 的技术差异",
+      "研究 Scaling Law 的最新发现",
+      "探索涌现能力的理论解释",
+      "撰写技术深度报告",
+      "预测未来3年发展方向"
+    ]
+  },
+  {
+    "id": "research-003",
+    "type": "research",
+    "title": "脑机接口技术现状与伦理框架",
+    "description": "研究 Neuralink 等公司的技术进展、医疗应用、伦理挑战",
+    "output_dir": "projects/research-003",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "调研 Neuralink/BrainGate 等公司进展",
+      "分析脑机接口在医疗领域的应用",
+      "研究伦理框架和监管政策",
+      "撰写综合研究报告"
+    ]
+  },
+  {
+    "id": "research-004",
+    "type": "research",
+    "title": "核聚变能源商业化前景",
+    "description": "研究 ITER/SPARC 等项目进展、技术路径、商业化时间表",
+    "output_dir": "projects/research-004",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "分析 ITER/SPARC/Commonwealth Fusion 进展",
+      "研究不同技术路线的优劣",
+      "预测商业化时间表",
+      "撰写深度分析报告"
+    ]
+  },
+  {
+    "id": "research-005",
+    "type": "research",
+    "title": "合成生物学产业应用",
+    "description": "研究合成生物学在医药、材料、能源领域的应用",
+    "output_dir": "projects/research-005",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "调研 Ginkgo Bioworks 等公司",
+      "分析 DNA 合成、基因编辑技术进展",
+      "研究产业应用场景",
+      "撰写产业研究报告"
+    ]
+  },
+  {
+    "id": "code-001",
+    "type": "code",
+    "title": "分布式电商系统完整实现",
+    "description": "用 Go + gRPC + PostgreSQL + Redis 实现完整的分布式电商系统",
+    "output_dir": "projects/code-001",
+    "expected_tokens": 120000000,
+    "tasks": [
+      "设计系统架构（微服务拆分）",
+      "实现用户服务（注册/登录/权限）",
+      "实现商品服务（CRUD/搜索/分类）",
+      "实现订单服务（创建/支付/退款）",
+      "实现库存服务（扣减/回滚）",
+      "实现支付网关（支付宝/微信）",
+      "编写单元测试和集成测试",
+      "编写 API 文档",
+      "编写部署指南（Docker/K8s）",
+      "性能测试和优化"
+    ]
+  },
+  {
+    "id": "code-002",
+    "type": "code",
+    "title": "实时协作文档编辑器",
+    "description": "用 TypeScript + WebSocket + CRDT 实现类似 Google Docs 的协作编辑器",
+    "output_dir": "projects/code-002",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "研究 CRDT 算法（Yjs/Automerge）",
+      "实现实时同步引擎",
+      "实现富文本编辑器前端",
+      "实现版本历史和回滚",
+      "实现权限管理",
+      "编写完整测试",
+      "部署文档"
+    ]
+  },
+  {
+    "id": "code-003",
+    "type": "code",
+    "title": "机器学习推荐系统",
+    "description": "用 PyTorch + FastAPI 实现完整的推荐系统",
+    "output_dir": "projects/code-003",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "实现数据处理管道",
+      "实现多种推荐算法（CF/Content-based/Deep Learning）",
+      "实现实时推荐 API",
+      "实现 A/B 测试框架",
+      "实现模型训练管道",
+      "编写完整测试",
+      "部署文档"
+    ]
+  },
+  {
+    "id": "code-004",
+    "type": "code",
+    "title": "微服务 API 网关",
+    "description": "用 Rust + Tokio 实现高性能 API 网关",
+    "output_dir": "projects/code-004",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "实现请求路由和负载均衡",
+      "实现认证和授权",
+      "实现限流和熔断",
+      "实现日志和监控",
+      "性能基准测试",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-005",
+    "type": "code",
+    "title": "即时通讯系统",
+    "description": "用 Erlang/OTP + WebSocket 实现高并发 IM 系统",
+    "output_dir": "projects/code-005",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "实现消息路由和存储",
+      "实现群聊功能",
+      "实现文件传输",
+      "实现消息搜索",
+      "实现推送通知",
+      "压力测试",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "writing-001",
+    "type": "writing",
+    "title": "《量子纠缠：跨越时空的对话》科幻小说",
+    "description": "创作一部基于量子通讯的硬科幻小说",
+    "output_dir": "projects/writing-001",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "构建世界观设定",
+      "设计主要角色",
+      "创作完整故事大纲",
+      "撰写全书章节",
+      "科学准确性验证",
+      "编辑润色"
+    ]
+  },
+  {
+    "id": "writing-002",
+    "type": "writing",
+    "title": "《最后一个程序员》AI 科幻小说",
+    "description": "创作一部关于 AI 取代程序员的科幻小说",
+    "output_dir": "projects/writing-002",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "设定 AI 发展时间线",
+      "设计主角和冲突",
+      "创作完整故事",
+      "技术细节验证",
+      "编辑润色"
+    ]
+  },
+  {
+    "id": "tutorial-001",
+    "type": "tutorial",
+    "title": "分布式系统设计完整教程",
+    "description": "从理论到实践的分布式系统教程",
+    "output_dir": "projects/tutorial-001",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "编写 CAP/BASE 理论章节",
+      "编写一致性协议章节（Paxos/Raft）",
+      "编写分布式存储章节",
+      "编写分布式计算章节",
+      "编写实战项目",
+      "编写练习题和答案",
+      "编写参考文献"
+    ]
+  },
+  {
+    "id": "tutorial-002",
+    "type": "tutorial",
+    "title": "编译原理：手写编程语言",
+    "description": "从零实现一个编程语言的完整教程",
+    "output_dir": "projects/tutorial-002",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "编写词法分析章节",
+      "编写语法分析章节",
+      "编写语义分析章节",
+      "编写代码生成章节",
+      "实现完整编译器",
+      "编写练习题"
+    ]
+  },
+  {
+    "id": "tutorial-003",
+    "type": "tutorial",
+    "title": "操作系统内核实现",
+    "description": "从零实现一个简单操作系统内核",
+    "output_dir": "projects/tutorial-003",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "编写引导程序章节",
+      "编写内存管理章节",
+      "编写进程管理章节",
+      "编写文件系统章节",
+      "编写设备驱动章节",
+      "实现完整内核代码"
+    ]
+  },
+  {
+    "id": "analysis-001",
+    "type": "analysis",
+    "title": "人工智能产业链全景分析",
+    "description": "深入分析 AI 产业链的各个环节",
+    "output_dir": "projects/analysis-001",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析芯片层（NVIDIA/AMD/华为）",
+      "分析框架层（PyTorch/TensorFlow）",
+      "分析模型层（OpenAI/Google/百度）",
+      "分析应用层（各行业应用）",
+      "撰写深度分析报告"
+    ]
+  },
+  {
+    "id": "analysis-002",
+    "type": "analysis",
+    "title": "新能源汽车行业深度分析",
+    "description": "分析全球新能源汽车行业格局",
+    "output_dir": "projects/analysis-002",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析特斯拉/比亚迪/蔚来/小鹏",
+      "分析电池技术路线",
+      "分析自动驾驶进展",
+      "分析充电基础设施",
+      "撰写行业报告"
+    ]
+  },
+  {
+    "id": "analysis-003",
+    "type": "analysis",
+    "title": "半导体产业国产替代分析",
+    "description": "分析中国半导体产业的国产替代进程",
+    "output_dir": "projects/analysis-003",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析芯片设计（海思/紫光）",
+      "分析芯片制造（中芯国际）",
+      "分析设备和材料",
+      "分析 EDA 工具",
+      "撰写深度报告"
+    ]
+  },
+  {
+    "id": "research-006",
+    "type": "research",
+    "title": "全球供应链重构趋势",
+    "description": "研究后疫情时代的全球供应链变化",
+    "output_dir": "projects/research-006",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "分析近岸外包趋势",
+      "研究中国+1策略",
+      "分析关键行业（半导体/医药/汽车）",
+      "撰写研究报告"
+    ]
+  },
+  {
+    "id": "research-007",
+    "type": "research",
+    "title": "Web3.0 技术栈与应用前景",
+    "description": "研究区块链、DeFi、NFT、DAO 的技术与应用",
+    "output_dir": "projects/research-007",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "分析区块链技术演进",
+      "研究 DeFi 协议和应用",
+      "分析 NFT 市场和用例",
+      "研究 DAO 治理模式",
+      "撰写深度报告"
+    ]
+  },
+  {
+    "id": "research-008",
+    "type": "research",
+    "title": "自动驾驶 L5 技术瓶颈",
+    "description": "研究实现完全自动驾驶的技术挑战",
+    "output_dir": "projects/research-008",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "分析感知技术（激光雷达/摄像头）",
+      "分析决策算法",
+      "分析高精地图",
+      "分析法规和伦理",
+      "撰写技术报告"
+    ]
+  },
+  {
+    "id": "research-009",
+    "type": "research",
+    "title": "数字孪生工业应用",
+    "description": "研究数字孪生在制造业的应用",
+    "output_dir": "projects/research-009",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析数字孪生技术架构",
+      "研究工业应用场景",
+      "分析主要厂商方案",
+      "撰写应用报告"
+    ]
+  },
+  {
+    "id": "research-010",
+    "type": "research",
+    "title": "太空经济商业模式",
+    "description": "研究商业航天的市场机会",
+    "output_dir": "projects/research-010",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析 SpaceX/Blue Origin 等公司",
+      "研究卫星互联网市场",
+      "分析太空旅游前景",
+      "撰写商业分析"
+    ]
+  },
+  {
+    "id": "code-006",
+    "type": "code",
+    "title": "区块链浏览器完整实现",
+    "description": "用 React + Node.js + MongoDB 实现区块链浏览器",
+    "output_dir": "projects/code-006",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "实现区块数据索引",
+      "实现交易查询",
+      "实现地址余额查询",
+      "实现智能合约验证",
+      "实现可视化图表",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-007",
+    "type": "code",
+    "title": "视频流媒体平台",
+    "description": "用 FFmpeg + HLS + CDN 实现视频平台",
+    "output_dir": "projects/code-007",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "实现视频上传和转码",
+      "实现 HLS 流媒体",
+      "实现推荐算法",
+      "实现弹幕系统",
+      "实现用户系统",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-008",
+    "type": "code",
+    "title": "任务调度平台",
+    "description": "用 Java + Spring Boot + Kafka 实现分布式任务调度",
+    "output_dir": "projects/code-008",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "实现任务定义和管理",
+      "实现调度引擎",
+      "实现失败重试",
+      "实现监控告警",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-009",
+    "type": "code",
+    "title": "监控告警系统",
+    "description": "用 Prometheus + Grafana + AlertManager 实现完整监控",
+    "output_dir": "projects/code-009",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "实现指标采集",
+      "实现存储引擎",
+      "实现查询语言",
+      "实现可视化",
+      "实现告警规则",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-010",
+    "type": "code",
+    "title": "跨平台移动应用",
+    "description": "用 Flutter + Firebase 实现完整 APP",
+    "output_dir": "projects/code-010",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "实现用户认证",
+      "实现数据同步",
+      "实现推送通知",
+      "实现离线支持",
+      "实现 UI 组件库",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "tutorial-004",
+    "type": "tutorial",
+    "title": "数据库内核实现教程",
+    "description": "从零实现一个简单数据库",
+    "output_dir": "projects/tutorial-004",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "编写存储引擎章节",
+      "编写查询优化器章节",
+      "编写事务处理章节",
+      "编写索引结构章节",
+      "实现完整数据库",
+      "编写练习题"
+    ]
+  },
+  {
+    "id": "tutorial-005",
+    "type": "tutorial",
+    "title": "机器学习算法从零实现",
+    "description": "用 Python 从零实现经典 ML 算法",
+    "output_dir": "projects/tutorial-005",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "实现线性回归",
+      "实现逻辑回归",
+      "实现决策树",
+      "实现随机森林",
+      "实现 SVM",
+      "实现神经网络",
+      "编写练习题"
+    ]
+  },
+  {
+    "id": "tutorial-006",
+    "type": "tutorial",
+    "title": "密码学从古典到量子",
+    "description": "完整的密码学教程",
+    "output_dir": "projects/tutorial-006",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "编写古典密码学章节",
+      "编写现代密码学章节",
+      "编写公钥密码学章节",
+      "编写量子密码学章节",
+      "实现各种算法",
+      "编写练习题"
+    ]
+  },
+  {
+    "id": "writing-003",
+    "type": "writing",
+    "title": "《记忆交易市场》科幻小说",
+    "description": "创作一部关于记忆移植的科幻小说",
+    "output_dir": "projects/writing-003",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "构建世界观设定",
+      "设计主要角色",
+      "创作完整故事",
+      "科学准确性验证",
+      "编辑润色"
+    ]
+  },
+  {
+    "id": "writing-004",
+    "type": "writing",
+    "title": "《数字永生》科幻小说",
+    "description": "创作一部关于意识上传的科幻小说",
+    "output_dir": "projects/writing-004",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "构建世界观设定",
+      "设计哲学冲突",
+      "创作完整故事",
+      "编辑润色"
+    ]
+  },
+  {
+    "id": "writing-005",
+    "type": "writing",
+    "title": "《时间回溯者》科幻小说",
+    "description": "创作一部关于时间旅行的科幻小说",
+    "output_dir": "projects/writing-005",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "设计时间旅行规则",
+      "构建故事结构",
+      "创作完整故事",
+      "逻辑验证",
+      "编辑润色"
+    ]
+  },
+  {
+    "id": "analysis-004",
+    "type": "analysis",
+    "title": "云计算市场竞争格局",
+    "description": "分析 AWS/Azure/GCP/阿里云竞争",
+    "output_dir": "projects/analysis-004",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析各厂商优劣势",
+      "研究市场份额变化",
+      "分析技术差异化",
+      "撰写竞争分析"
+    ]
+  },
+  {
+    "id": "analysis-005",
+    "type": "analysis",
+    "title": "生物医药创新趋势",
+    "description": "分析全球生物医药创新动态",
+    "output_dir": "projects/analysis-005",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析基因治疗进展",
+      "研究 mRNA 技术应用",
+      "分析 AI 药物研发",
+      "撰写行业报告"
+    ]
+  },
+  {
+    "id": "research-011",
+    "type": "research",
+    "title": "远程办公社会影响研究",
+    "description": "研究远程办公对社会结构的长期影响",
+    "output_dir": "projects/research-011",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析工作效率变化",
+      "研究心理健康影响",
+      "分析城市化趋势",
+      "撰写研究报告"
+    ]
+  },
+  {
+    "id": "research-012",
+    "type": "research",
+    "title": "教育技术革新研究",
+    "description": "研究 AI/VR/AR 在教育中的应用",
+    "output_dir": "projects/research-012",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析自适应学习平台",
+      "研究 VR/AR 教学应用",
+      "分析 AI 辅导系统",
+      "撰写研究报告"
+    ]
+  },
+  {
+    "id": "research-013",
+    "type": "research",
+    "title": "数字隐私保护法律框架",
+    "description": "研究全球数字隐私保护立法",
+    "output_dir": "projects/research-013",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析 GDPR/CCPA 等法规",
+      "研究中国个人信息保护法",
+      "分析企业合规挑战",
+      "撰写法律研究报告"
+    ]
+  },
+  {
+    "id": "code-011",
+    "type": "code",
+    "title": "智能客服系统",
+    "description": "用 NLP + 知识库实现智能客服",
+    "output_dir": "projects/code-011",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "实现意图识别",
+      "实现知识库检索",
+      "实现多轮对话",
+      "实现人工转接",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-012",
+    "type": "code",
+    "title": "数据可视化平台",
+    "description": "用 D3.js + React 实现数据可视化",
+    "output_dir": "projects/code-012",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "实现图表组件库",
+      "实现数据连接器",
+      "实现仪表板",
+      "实现导出功能",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-013",
+    "type": "code",
+    "title": "CI/CD 流水线平台",
+    "description": "用 GitHub Actions + Docker 实现完整 CI/CD",
+    "output_dir": "projects/code-013",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "实现构建管道",
+      "实现测试自动化",
+      "实现部署自动化",
+      "实现回滚机制",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "tutorial-007",
+    "type": "tutorial",
+    "title": "并发编程完全指南",
+    "description": "从原理到模式的并发编程教程",
+    "output_dir": "projects/tutorial-007",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "编写并发原语章节",
+      "编写内存模型章节",
+      "编写并发模式章节",
+      "编写实战项目",
+      "编写练习题"
+    ]
+  },
+  {
+    "id": "tutorial-008",
+    "type": "tutorial",
+    "title": "系统性能优化全栈方法",
+    "description": "从前端到后端的性能优化教程",
+    "output_dir": "projects/tutorial-008",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "编写前端优化章节",
+      "编写后端优化章节",
+      "编写数据库优化章节",
+      "编写网络优化章节",
+      "编写实战案例"
+    ]
+  },
+  {
+    "id": "analysis-006",
+    "type": "analysis",
+    "title": "SaaS 行业商业模式演进",
+    "description": "分析 SaaS 行业的发展趋势",
+    "output_dir": "projects/analysis-006",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析订阅模式演变",
+      "研究 PLG 策略",
+      "分析垂直 SaaS 机会",
+      "撰写行业报告"
+    ]
+  },
+  {
+    "id": "analysis-007",
+    "type": "analysis",
+    "title": "银发经济市场机会",
+    "description": "分析老龄化社会的商业机会",
+    "output_dir": "projects/analysis-007",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析养老产业",
+      "研究健康管理市场",
+      "分析智能养老设备",
+      "撰写市场报告"
+    ]
+  },
+  {
+    "id": "analysis-008",
+    "type": "analysis",
+    "title": "碳中和产业变革",
+    "description": "分析碳中和目标下的产业转型",
+    "output_dir": "projects/analysis-008",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析能源转型",
+      "研究碳交易市场",
+      "分析绿色金融",
+      "撰写产业报告"
+    ]
+  },
+  {
+    "id": "research-014",
+    "type": "research",
+    "title": "社交媒体心理健康影响",
+    "description": "研究社交媒体使用与心理健康的关系",
+    "output_dir": "projects/research-014",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析现有研究文献",
+      "研究青少年影响",
+      "分析算法推荐机制",
+      "撰写研究报告"
+    ]
+  },
+  {
+    "id": "research-015",
+    "type": "research",
+    "title": "城市化空间规划研究",
+    "description": "研究城市化进程中的空间规划策略",
+    "output_dir": "projects/research-015",
+    "expected_tokens": 60000000,
+    "tasks": [
+      "分析 TOD 模式",
+      "研究智慧城市案例",
+      "分析可持续城市设计",
+      "撰写研究报告"
+    ]
+  },
+  {
+    "id": "code-014",
+    "type": "code",
+    "title": "低代码平台",
+    "description": "实现一个简单的低代码开发平台",
+    "output_dir": "projects/code-014",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "实现可视化编辑器",
+      "实现组件库",
+      "实现数据模型",
+      "实现逻辑编排",
+      "实现代码生成",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "code-015",
+    "type": "code",
+    "title": "搜索引擎实现",
+    "description": "从零实现一个简单搜索引擎",
+    "output_dir": "projects/code-015",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "实现爬虫",
+      "实现索引器",
+      "实现查询处理器",
+      "实现排序算法",
+      "实现前端界面",
+      "完整文档"
+    ]
+  },
+  {
+    "id": "writing-006",
+    "type": "writing",
+    "title": "《基因黑客》科幻小说",
+    "description": "创作一部关于基因编辑的科幻小说",
+    "output_dir": "projects/writing-006",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "构建世界观设定",
+      "设计伦理冲突",
+      "创作完整故事",
+      "科学准确性验证",
+      "编辑润色"
+    ]
+  },
+  {
+    "id": "writing-007",
+    "type": "writing",
+    "title": "《虚拟偶像的觉醒》科幻小说",
+    "description": "创作一部关于 AI 意识觉醒的科幻小说",
+    "output_dir": "projects/writing-007",
+    "expected_tokens": 80000000,
+    "tasks": [
+      "构建世界观设定",
+      "设计哲学思考",
+      "创作完整故事",
+      "编辑润色"
+    ]
+  },
+  {
+    "id": "tutorial-009",
+    "type": "tutorial",
+    "title": "深度学习框架实现",
+    "description": "手写一个简单深度学习框架",
+    "output_dir": "projects/tutorial-009",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "编写张量运算章节",
+      "编写自动微分章节",
+      "编写神经网络层章节",
+      "编写优化器章节",
+      "实现完整框架",
+      "编写练习题"
+    ]
+  },
+  {
+    "id": "tutorial-010",
+    "type": "tutorial",
+    "title": "网络协议栈实现",
+    "description": "从零实现 TCP/IP 协议栈",
+    "output_dir": "projects/tutorial-010",
+    "expected_tokens": 100000000,
+    "tasks": [
+      "编写以太网帧章节",
+      "编写 IP 协议章节",
+      "编写 TCP 协议章节",
+      "编写 UDP 协议章节",
+      "实现完整协议栈",
+      "编写练习题"
+    ]
+  }
+]
